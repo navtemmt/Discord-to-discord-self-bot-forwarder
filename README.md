@@ -54,40 +54,37 @@ OPENAI_API_KEY=HERE
 
 ### 4. Edit the configuration file
 
-Create or edit the `config.json` file with the following structure:
+Create or edit the `config.json` file with the following structure(if error check original post for complete chatgpt instruction and copy paste it):
 
 ```json
 {
   "status": "invisible",
-  "SOURCE_GUILD_ID": "1247958702628278332",
+  "SOURCE_GUILD_ID": "1292747050139652155",
   "mirrors": [
     {
-      "name": "Balanced (info-main channel)",
       "_comment": "MAIN CHANNEL",
-      "channel_id": "1170066899934130197",
-      "webhook_url": "https://discord.com/api/webhooks/dummy/dummy",
+      "channel_id": "1292747050139652158",
+      "webhook_url": "https://discord.com/api/webhooks/1341039947922145290/NcnFrqAD7zKDAoNR3AF2x0XqkUXWOyFhpveNtgMwPRrQdLVGulgwGVArsc1HKTulibbO",
       "use_user_profile": true,
       "blocked_words": ["nephra", "kidney"],
 
       "remove_web_links": true,
-      "allowed_senders": ["1234567788", "0987654321"],
-      "allowed_words": ["looking for entry", "silver gold"],
       "remove_discord_links": true,
-      "use_chatgpt_conversion": true,
+      "use_chatgpt_conversion": false,
       "gpt_model": "gpt-3.5-turbo",
-      "chatgpt_instruction": "You are an esteemed stock, options, and equities trader. You KNOW all the ticker symbols on the NYSE and other major stock exchanges. Your task is to summarize messages in bullet points in your own words and analysis. Rewrite the reply in bullet points and not in whole sentences. Make it simple, concise, and to the point."
+      "chatgpt_instruction": "You are an esteemed stock, options, and equities trader. You KNOW all the ticker symbols on the NYSE and other major stock"
     },
     {
-      "name": "News",
-      "_comment": "ALT CHANNEL",
-      "channel_id": "1170066899934130197",
-      "webhook_url": "https://discord.com/api/webhooks/dummy/dummy",
-      "allowed_senders": ["1234567788", "0987654321"],
-      "remove_discord_links": true,
-      "remove_everyone_ping": true,
-      "remove_unknown_users": true,
-      "remove_channels": true,
-      "remove_roles": true,
+      "name": "",
+      "_comment": "Futures Alert CHANNEL",
+      "channel_id": "1293437856756404326",
+      "webhook_url": "https://discord.com/api/webhooks/1341052831943098489/Vlyz69hb0pN4yEW6A5VhhyPuS2p6tizIQ35FBZdrEg0fcE_dI7nSyKA-ciklu7bZpZ_k",
+      "remove_discord_links": false,
+        "use_user_profile": true,
+      "remove_everyone_ping": false,
+      "remove_unknown_users": false,
+      "remove_channels": false,
+      "remove_roles": false,
       "custom_names": {
         "620547628857425920": "Abraham Signals"
       }
