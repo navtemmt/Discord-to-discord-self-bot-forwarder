@@ -115,14 +115,17 @@ You only need to fill in your user token in the reader.js.
 Running the System
 Start the Writer Bot: Open a terminal in the writer-bot folder and run:
 
-bash
+```
 node writer.js
+```
+
 Keep this terminal open. It is now listening for instructions.
 
 Start the Reader Bot: Open a second, separate terminal in the reader-bot folder and run:
 
-bash
+```
 node reader.js
+```
 This will log in as you and start monitoring messages.
 
 - `name` (optional): Adds a header to messages for this mirror.
@@ -167,6 +170,7 @@ npm start
 - This script uses a self-bot, which is against Discord's Terms of Service. Use it at your own risk.
 - Ensure the account has read message permissions in the source channel.
 - The webhook URL should be kept private to prevent misuse.
+
 
 
 
