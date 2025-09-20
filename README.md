@@ -8,7 +8,10 @@ This repository contains a Discord self-bot written in Node.js that forwards mes
 - Forward replies aswell, target source has replied message. the webhook points to replied message on source.
 - Uses webhooks for forwarding messages.
 - Does not require admin privileges in the source server.
+- Forward messages from a specific channel at a specific time in your timezone of choice say [FROM 9AM to 4PM EST time]
 - Can use the name and picture of sender instead of default webhook profile (`use_user_profile`)
+- Dont forward media (`no_media`)
+- Remove emojis from message (`remove_emojis`)
 - Use chat gpt to rephrase your messages with instructions (`chatgpt_instruction`, `gpt_model`,`chatgpt_instruction`)
 - Removes Discord invite links if configured (`remove_discord_links`).
 - Removes every sort of website links (https/http) if configured (`remove_web_links`).
@@ -17,6 +20,7 @@ This repository contains a Discord self-bot written in Node.js that forwards mes
 - Block messages containing specific words (`blocked_words`).
 - Adds a header to the top of each message (`name`).
 - Remove everyone ping from message (`remove_everyone_ping`)
+- Disable embedding of 3rd party links from message (`disable_embed_links`)
 - Remove `@Unknown-user` from the messages (`remove_unknown_users`)
 - Remove `#Unknown` from the messages (`remove_channels`)
 - Remove `@Unknown-role` from the messages (`remove_roles`)
@@ -97,7 +101,10 @@ Create or edit the `config.json` file with the following structure(if error chec
 - `_comment`: to set some notes
 - `channel_id`: The ID of the source channel in your Discord server.
 - `webhook_url`: The webhook URL for the destination channel.
+- `forward_at_timezone`: Specify to mention the message be forwarded only if time is so and so
 - `use_user_profile`: use the sender picture and name instead of webhook default picture/name
+- `no_media`: strips off all sort of media before forwarding
+- `remove_emojis`: strips off all sort of emojis before forwarding
 - `use_chatgpt_conversion`: use the chat gpt AI to tranform your messages
 - `gpt_model`: which model to use
 - `chatgpt_instruction`: instructions that chat gpt will take and transform messages accordingly
@@ -107,9 +114,11 @@ Create or edit the `config.json` file with the following structure(if error chec
 - `remove_discord_links` (optional): Set to `true` to remove Discord invite links from messages.
 - `remove_web_links` (optional): Set to `true` to remove every website link before bot checks for blocked, allowed words/users.
 - `remove_everyone_ping` (optional): Set to `true` to remove everyone ping from messages.
+- `disable_embed_links` (optional): Set to `true` to remove embed links from messages.
 - `remove_channels` (optional): Sometimes when message contain channel from source, the channel appear as #Unknown. Set this to `true` to remove them.
 - `remove_unknown_users` (optional): Sometimes when message mentions users on source, the member appear as #Unknown. Set this to `true` to remove them.
 - `remove_roles` (optional): Sometimes when message contain roles from source, the role appear as #Unknown-role. Set this to `true` to remove them.
+- `remove_embed_title_footer` (optional): Remove title/footer of the embed if any.
 - `custom_names` (optional): Lets say, John and Abraham are sending message on source. While you have set webhook name to `Forwarder` but you wanna distinguish on your server between John and Abraham. Set this property as object below.
 
 ```json

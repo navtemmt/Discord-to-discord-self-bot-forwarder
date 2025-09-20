@@ -14,6 +14,7 @@ const {
   removeRoles,
   removeUnknownUsers,
   removeWebLinks,
+  removeEmojis,
 } = require("../utils/messageManipulation");
 const messageMap = require("../cache/messageMap");
 const { useChatGptToConvertMessage } = require("../utils/openai");
@@ -56,10 +57,16 @@ module.exports = class MirrorClient extends Client {
     try {
       const { channelId } = message;
 
+      console.log(
+        `Message received in ${message.channel?.name} (${channelId})`
+      );
+
       const data = this.mirrors[channelId];
 
       removeWebLinks(data?.remove_web_links, message);
       await verifyMessage(data, message);
+
+      console.log("Forwarding");
 
       const {
         name,
@@ -68,19 +75,19 @@ module.exports = class MirrorClient extends Client {
         remove_channels,
         remove_roles,
         remove_unknown_users,
+        remove_emojis,
       } = data;
 
       addReplyIfExists(message);
 
       removeInviteLinks(remove_discord_links, message);
+      removeEmojis(remove_emojis, message);
       removeEveryonePing(remove_everyone_ping, message);
       removeChannelMentions(remove_channels, message);
-      console.log(message.content);
       removeRoles(remove_roles, message);
       removeUnknownUsers(remove_unknown_users, message);
 
       message.content = await useChatGptToConvertMessage(data, message);
-      console.log(message.content);
 
       addGuildName(name, message);
       const m = await sendWebhook(message, data);
