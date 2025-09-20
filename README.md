@@ -97,6 +97,13 @@ Create or edit the `config.json` file with the following structure(if error chec
 }
 ```
 
+Navigate to writer-bot and run the following:
+```
+cd writer-bot
+npm init -y
+npm install discord.js express axios
+```
+
 - `name` (optional): Adds a header to messages for this mirror.
 - `_comment`: to set some notes
 - `channel_id`: The ID of the source channel in your Discord server.
@@ -139,3 +146,4 @@ npm start
 - This script uses a self-bot, which is against Discord's Terms of Service. Use it at your own risk.
 - Ensure the account has read message permissions in the source channel.
 - The webhook URL should be kept private to prevent misuse.
+
